@@ -1,0 +1,7 @@
+{
+  "name": "Portfolio",
+  "version": "1.0.0",
+  "dependencies": {
+    "@google-cloud/dialogflow": "^6.12.0"
+  }
+}

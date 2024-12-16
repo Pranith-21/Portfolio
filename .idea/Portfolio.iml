@@ -9,5 +9,6 @@
     <orderEntry type="library" name="boxicons" level="application" />
     <orderEntry type="library" name="@emailjs/browser" level="application" />
     <orderEntry type="library" name="@google" level="application" />
+    <orderEntry type="library" name="@google-cloud" level="application" />
   </component>
 </module>

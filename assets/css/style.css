@@ -2560,7 +2560,7 @@ section.active::after {
   height: 140px;
   cursor: pointer;
   pointer-events: auto;
-  animation: moveForward 20s infinite linear;
+  animation: moveForward 40s infinite linear;
 }
 
 /* Add leg styles */
@@ -2666,7 +2666,7 @@ section.active::after {
 }
 
 .reaction-btn {
-  background: #9045f1;
+  background: #5e06fa;
   border: none;
   border-radius: 20px;
   padding: 6px 16px;
@@ -2676,7 +2676,7 @@ section.active::after {
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #09a1ee;
+  color: #03080a;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -2719,4 +2719,109 @@ section.active::after {
 /* Click animation */
 .reaction-btn:active {
   transform: scale(0.98);
+}
+
+/* Enhanced Chatbot Styles */
+.chatbot-window {
+  /* Existing styles */
+  transition: all 0.3s ease-in-out;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.chatbot-window.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Message Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.chatbot-message {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Enhanced Typing Indicator */
+.typing-indicator {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.typing-bubble {
+  padding: 8px 16px;
+  background: #e6e9ec;
+  border-radius: 15px;
+}
+
+.typing-bubble span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
+  background: #90a4ae;
+  border-radius: 50%;
+  animation: typingBubble 1s infinite;
+}
+
+.typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
+.typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBubble {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Reaction Buttons */
+.reaction-btn {
+  position: relative;
+  padding: 5px 10px;
+  margin: 0 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.reaction-btn:hover {
+  transform: scale(1.2);
+}
+
+.reaction-btn.active {
+  animation: bounce 0.3s ease;
+}
+
+.reaction-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 12px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.reaction-btn:hover .reaction-tooltip {
+  opacity: 1;
 }
